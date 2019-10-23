@@ -1,0 +1,33 @@
+version: "3"
+services:
+  web:
+    container_name: employment-frontend
+    build: employment/.
+    ports:
+      - "3000:80"
+    networks:
+      - webnet
+    links:
+      - server
+  server:
+    container_name: server
+    restart: always
+    build: employment-server/.
+    ports:
+      - "4000:4000"
+    networks:
+      - webnet
+    links:
+      - mongo
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - webnet
+networks:
+  webnet:
+    driver: bridge
