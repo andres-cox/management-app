@@ -1,0 +1,6 @@
+[submodule "management-frontend"]
+	path = management-frontend
+	url = https://github.com/andres-cox/management-frontend
+[submodule "management-backend"]
+	path = management-backend
+	url = https://github.com/andres-cox/management-backend
